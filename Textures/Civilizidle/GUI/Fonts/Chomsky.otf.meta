@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 641ebb266fdb1ba458767d5ace53e077
+timeCreated: 1575060639
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Chomsky
+  fontNames:
+  - Chomsky
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
