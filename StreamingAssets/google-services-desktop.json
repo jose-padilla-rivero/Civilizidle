@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "95200633830",
+    "firebase_url": "https://civilizidle.firebaseio.com",
+    "project_id": "civilizidle",
+    "storage_bucket": "civilizidle.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95200633830:android:724a4d79a6e5d5ad42ec27",
+        "android_client_info": {
+          "package_name": "com.firenation.civilizidle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "95200633830-i566dfv8dcb2sdekl070m1aldaaukf91.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.firenation.civilizidle",
+            "certificate_hash": "67ba7eb544f5bafaea3880752ca85800d4b74f00"
+          }
+        },
+        {
+          "client_id": "95200633830-icvds50t7vgc38aag9qa20vm1j1kdd81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrvrs9WD9tuShnvUexFeU5E_rSDtflQqI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "95200633830-icvds50t7vgc38aag9qa20vm1j1kdd81.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
