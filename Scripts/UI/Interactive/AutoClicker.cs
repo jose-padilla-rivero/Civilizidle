@@ -55,7 +55,7 @@ namespace IdleClickerKit
 				// Although tecnically this isn't 100% accurate its good enough
 				yield return new WaitForSeconds(timeInterval);
 				// Update clicks
-				ClickManager.GetInstance(rewardClickName).AddClicks (clickAmount * currentCount);
+				ClickManager.GetInstance(rewardClickName).AddClicks (clickAmount * currentCount, false);
 				// Send event
 				OnClicksGenerated (clickAmount * currentCount);
 			}

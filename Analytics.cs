@@ -24,6 +24,7 @@ public class Analytics : MonoBehaviour
 			if (dependencyStatus == DependencyStatus.Available)
 			{
 				InitializeFirebase();
+				Firebase.FirebaseApp.LogLevel = Firebase.LogLevel.Debug;
 				Debug.LogError(
 				  "Firebase initialized!!!! ====================================================");
 			}
@@ -31,6 +32,9 @@ public class Analytics : MonoBehaviour
 			{
 				Debug.LogError(
 				  "Could not resolve all Firebase dependencies: " + dependencyStatus);
+				UnityEngine.Debug.LogError(System.String.Format(
+					"Could not resolve all Firebase dependencies: {0}", dependencyStatus));
+
 			}
 		});
 	}
@@ -40,55 +44,7 @@ public class Analytics : MonoBehaviour
 		DebugLog("Enabling data collection.");
 		FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
 
-		DebugLog("Set user properties.");
-		// Set the user's sign up method.
-		FirebaseAnalytics.SetUserProperty(
-		  FirebaseAnalytics.UserPropertySignUpMethod,
-		  "Google");
-		// Set the user ID.
-		FirebaseAnalytics.SetUserId("uber_user_510");
-		// Set default session duration values.
-		FirebaseAnalytics.SetMinimumSessionDuration(new TimeSpan(0, 0, 10));
-		FirebaseAnalytics.SetSessionTimeoutDuration(new TimeSpan(0, 30, 0));
-		firebaseInitialized = true;
-
-		Debug.LogError("Firebase Hell yeahhhh -======================================---------- ");
-
-		Firebase.Analytics.FirebaseAnalytics
-.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventLogin);
-
-		// Log an event with a float parameter
-		Firebase.Analytics.FirebaseAnalytics
-		  .LogEvent("progress", "percent", 0.4f);
-
-		// Log an event with an int parameter.
-		Firebase.Analytics.FirebaseAnalytics
-		  .LogEvent(
-			Firebase.Analytics.FirebaseAnalytics.EventPostScore,
-			Firebase.Analytics.FirebaseAnalytics.ParameterScore,
-			42
-		  );
-
-		// Log an event with a string parameter.
-		Firebase.Analytics.FirebaseAnalytics
-		  .LogEvent(
-			Firebase.Analytics.FirebaseAnalytics.EventJoinGroup,
-			Firebase.Analytics.FirebaseAnalytics.ParameterGroupId,
-			"spoon_welders"
-		  );
-
-		// Log an event with multiple parameters, passed as a struct:
-		Firebase.Analytics.Parameter[] LevelUpParameters = {
-  new Firebase.Analytics.Parameter(
-	Firebase.Analytics.FirebaseAnalytics.ParameterLevel, 5),
-  new Firebase.Analytics.Parameter(
-	Firebase.Analytics.FirebaseAnalytics.ParameterCharacter, "mrspoon"),
-  new Firebase.Analytics.Parameter(
-	"hit_accuracy", 3.14f)
-};
-		Firebase.Analytics.FirebaseAnalytics.LogEvent(
-		  Firebase.Analytics.FirebaseAnalytics.EventLevelUp,
-		  LevelUpParameters);
+		
 	}
 
 	// Output text to the debug log text field, as well as the console.

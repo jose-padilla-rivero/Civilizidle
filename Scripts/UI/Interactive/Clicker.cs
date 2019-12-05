@@ -23,11 +23,9 @@ namespace IdleClickerKit {
 		/// </summary>
 		virtual public void Click() {
 			ClickManager.GetInstance(clickName).AddClicks (ClickManager.GetInstance(clickName).ClickIncrement);
-			Firebase.Analytics.FirebaseAnalytics.LogEvent(
-				Firebase.Analytics.FirebaseAnalytics.EventPostScore,
-				Firebase.Analytics.FirebaseAnalytics.ParameterScore,
-			50
-		  );
+
+			Firebase.Analytics.FirebaseAnalytics.LogEvent("user_main_click");
+
 		}
 
 		// Note although clickers don't save anything we extend persistable so that extensions class like the cool down 
