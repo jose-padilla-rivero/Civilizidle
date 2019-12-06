@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id" xmlns:tools="http://schemas.android.com/tools">
+  <string name="firebase_database_url" translatable="false">https://civilizidle.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">95200633830</string>
+  <string name="google_storage_bucket" translatable="false">civilizidle.appspot.com</string>
+  <string name="project_id" translatable="false">civilizidle</string>
+  <string name="google_api_key" translatable="false">AIzaSyDrvrs9WD9tuShnvUexFeU5E_rSDtflQqI</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDrvrs9WD9tuShnvUexFeU5E_rSDtflQqI</string>
+  <string name="google_app_id" translatable="false">1:95200633830:android:724a4d79a6e5d5ad42ec27</string>
+  <string name="default_web_client_id" translatable="false">95200633830-icvds50t7vgc38aag9qa20vm1j1kdd81.apps.googleusercontent.com</string>
+</resources>

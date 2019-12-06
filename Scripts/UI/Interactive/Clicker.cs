@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+using Firebase;
+using Firebase.Analytics;
+
 namespace IdleClickerKit {
 
 	/// <summary>
@@ -20,6 +23,9 @@ namespace IdleClickerKit {
 		/// </summary>
 		virtual public void Click() {
 			ClickManager.GetInstance(clickName).AddClicks (ClickManager.GetInstance(clickName).ClickIncrement);
+
+			Firebase.Analytics.FirebaseAnalytics.LogEvent("user_main_click");
+
 		}
 
 		// Note although clickers don't save anything we extend persistable so that extensions class like the cool down 

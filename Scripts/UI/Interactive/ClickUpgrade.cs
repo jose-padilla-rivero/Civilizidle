@@ -14,6 +14,7 @@ namespace IdleClickerKit
 
 		override protected void DoBuy() {
 			ClickManager.GetInstance(rewardClickName).IncreaseClickIncrement (clicksAdded);
+			Firebase.Analytics.FirebaseAnalytics.LogEvent("clicker_upgrade", "name", rewardClickName);
 		}
 
 		/// <summary>

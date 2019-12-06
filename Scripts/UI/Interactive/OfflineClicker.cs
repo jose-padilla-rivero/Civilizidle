@@ -98,7 +98,7 @@ namespace IdleClickerKit
 					if (currentStore >= TotalStorage) {
 						currentStore = TotalStorage;
 						if (collectionType == OfflineClickCollectionType.AUTO_WHEN_FULL) {
-							ClickManager.Instance.AddClicks (currentStore);
+							ClickManager.Instance.AddClicks (currentStore, false);
 							OnClicksGenerated (currentStore);
 							currentStore = 0;
 						}

@@ -2,6 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using Firebase;
+using Firebase.Analytics;
+using Firebase.Extensions;
+using System;
+using System.Threading.Tasks;
+
 namespace IdleClickerKit {
  
 	/// <summary>
@@ -36,6 +42,25 @@ namespace IdleClickerKit {
 		/// affects this value. It is NOT persisted.
 		/// </summary>
 		protected int clickIncrement = 1;
+
+
+
+		/// <summary>
+		///  Firebase
+		/// </summary>
+		DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
+		protected bool firebaseInitialized = false;
+		private string logText = "";
+		const int kMaxLogSize = 16382;
+		private Vector2 controlsScrollViewVector = Vector2.zero;
+		private Vector2 scrollViewVector = Vector2.zero;
+
+		public virtual void Start()
+		{
+
+		}
+
+		
 
 		/// <summary>
 		/// If there is already a manager destroy self, else initialise and assign to the static reference.
@@ -146,13 +171,58 @@ namespace IdleClickerKit {
 		}
 
 		/// <summary>
-		/// Add clicks.
+		/// Add clicks. Here we'll be tracking some events
+		/// 
 		/// </summary>
 		/// <param name="amount">Amount.</param>
-		public void AddClicks(int amount) {
-			clicks += amount;
-			totalClicks +=  amount;
-			Save (this);
+		public void AddClicks(int amount)
+		{
+			AddClicks(amount, true);
+		}
+
+		/// <summary>
+		/// Add clicks. Here we'll be tracking some events
+		/// 
+		/// </summary>
+		/// <param name="amount">Amount.</param>
+		public void AddClicks(int amount, bool isOnline) {
+			long before = clicks;
+			long after = clicks + amount;
+			// this tracks everytime the user has collected 100s
+			if ( (int)(after/100) > (int)(before/100) )
+			{
+				if (isOnline)
+				{
+					Firebase.Analytics.FirebaseAnalytics.LogEvent("collected_100", "resources", clicks);
+				}
+				else
+				{
+					Firebase.Analytics.FirebaseAnalytics.LogEvent("offline_100", "resources", clicks);
+				}
+			}
+
+			before = totalClicks;
+			after = totalClicks + amount;
+			if ((int)(after / 5000) > (int)(before / 5000))
+			{
+				if (isOnline) {
+					Firebase.Analytics.FirebaseAnalytics.LogEvent("collected_5000", "total resources", totalClicks);
+				}
+				else
+				{
+					Firebase.Analytics.FirebaseAnalytics.LogEvent("offline_5000", "total resources", totalClicks);
+				}
+				
+			}
+
+
+			clicks += amount;  /// current clicks to buy stuff
+			totalClicks += amount; /// total clicks though the game
+
+
+
+
+			Save(this);
 		}
 
 		public bool Purchase(int amount) {
